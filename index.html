@@ -7,20 +7,44 @@
 </head>
 <body>
 <h1>UX of HTML</h1>
-<a href="#test" download="ux.html">Test</a>
 <form>
-    <fieldset id="a1">
-        <legend>Persoonsgegevens</legend>
-        <fieldset>
-            <legend>Adress</legend>
-            <input type="text" name="Adress" placeholder="Adress" required>
-            <legend>emai</legend>
-            <input type="email" name="Email" placeholder="Email" required>
+    <fieldset>
+        <legend>Gegevens van de Overledene</legend>
+        <h3>Vul hier de gegevens in van de overledene.</h3>
+        <fieldset class="container">
+            <legend>1</legend>
+            <fieldset>
+                <label for="voorenachter">
+                    Voorletter(s), tussen-
+                    voegsel(s) en achternaam
+                </label>
+                <input type="text" name="naam" id="voorenachter">
+            </fieldset>
+            <fieldset>
+                <label for="bsn">Burgerservicenummer overledene</label>
+                <input type="text" name="bsn" id="bsn">
+            </fieldset>
+            <fieldset>
+                <label for="overlijdensdatum">Overlijdensdatum</label>
+                <input type="date" name="overlijdensdatum" id="overlijdensdatum">
+            </fieldset>
+            <fieldset>
+                <label for="partnerJ">
+                    Was de overledene getrouwd of had de overledene een
+                    geregistreerd partner op het moment van overlijden?
+                </label>
+                <input type="radio" name="partner" id="partnerJ" value="Ja">
+            </fieldset>
+            <label for="partnerJ">Ja</label>
+            <input type="radio" name="partner" id="partnerN" value="Nee">
+            <label for="partnerN">Nee. <i>Ga verder met vraag 1c.</i></label>
         </fieldset>
     </fieldset>
 </form>
-<a href="#test" download="ux.html">Test</a>
-
 <script src="JS/opdracht.js"></script>
 </body>
 </html>
+<!--            -->
+<!--            <optgroup></optgroup>-->
+<!--            <hr>-->
+<!--            Dit is opties in een dropdown-->
