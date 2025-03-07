@@ -5,16 +5,44 @@
 }
 
 :root {
-    --primary-color: #2c3e50;
-    --secondary-color: #2c3e50;
+    color-scheme: light dark;
+    --background-color: light-dark(#ffffff, #121212);
+    --primary-color: light-dark(#fec718, #1f1b24);
+    --secondary-color: light-dark(#2c3e50, #1a252f);
+    --text-color: light-dark(#233973, #ffffff);
+    --button-color: light-dark(#2b61ab, #3700B3);
 }
 
 body {
+     font-family: NS Sans, Segoe UI, Myriad, Verdana, sans-serif;
+    background-color: var(--background-color);
     display: flex;
     flex-direction: column;
     margin: 5em;
+    color: var(--text-color);
 }
 
-fieldset  {
-    border: none;
+form {
+    background-color: var(--primary-color);
+    padding: 1em;
 }
+
+button {
+    all: unset;
+}
+
+fieldset {
+
+}
+
+fieldset:has(> label) {
+    border: none;
+    padding: 1em;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+fieldset:has(> label)>[input type="radio"] {
+    background-color: var(--secondary-color);
+}
+

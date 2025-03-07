@@ -8,36 +8,51 @@
 <body>
 <h1>UX of HTML</h1>
 <form>
+    <h2>Gegevens van de Overledene</h2>
+    <h3>Vul hier de gegevens in van de overledene.</h3>
     <fieldset>
-        <legend>Gegevens van de Overledene</legend>
-        <h3>Vul hier de gegevens in van de overledene.</h3>
-        <fieldset class="container">
-            <legend>1</legend>
+        <legend>1</legend>
+        <fieldset>
+            <legend>1.a</legend>
+            <label for="voorenachter">
+                Voorletter(s), tussen-
+                voegsel(s) en achternaam
+            </label>
+            <input type="text" name="naam" id="voorenachter">
+            <label for="bsn">Burgerservicenummer overledene</label>
+            <input type="text" name="bsn" id="bsn">
+            <label for="overlijdensdatum">Overlijdensdatum</label>
+            <input type="date" name="overlijdensdatum" id="overlijdensdatum">
+        </fieldset>
+        <fieldset>
+            <legend>1.b</legend>
             <fieldset>
-                <label for="voorenachter">
-                    Voorletter(s), tussen-
-                    voegsel(s) en achternaam
-                </label>
-                <input type="text" name="naam" id="voorenachter">
-            </fieldset>
-            <fieldset>
-                <label for="bsn">Burgerservicenummer overledene</label>
-                <input type="text" name="bsn" id="bsn">
-            </fieldset>
-            <fieldset>
-                <label for="overlijdensdatum">Overlijdensdatum</label>
-                <input type="date" name="overlijdensdatum" id="overlijdensdatum">
-            </fieldset>
-            <fieldset>
-                <label for="partnerJ">
+                <legend>
                     Was de overledene getrouwd of had de overledene een
                     geregistreerd partner op het moment van overlijden?
-                </label>
+                </legend>
+                <label for="partnerN">Nee. <i>Ga verder met vraag 1c.</i></label>
+                <input type="radio" name="partner" id="partnerN" value="Nee">
+                <label for="partnerJ">Ja</label>
                 <input type="radio" name="partner" id="partnerJ" value="Ja">
             </fieldset>
-            <label for="partnerJ">Ja</label>
-            <input type="radio" name="partner" id="partnerN" value="Nee">
-            <label for="partnerN">Nee. <i>Ga verder met vraag 1c.</i></label>
+            <p>
+                Hadden de overledene en diens echtgenoot of
+                geregistreerd partner huwelijkse of partner schaps-voorwaarden laten vastleggen in een notariële akte?
+            </p>
+            <label for="akteN">Nee</label>
+            <input type="radio" name="akte" id="akteN" value="Nee">
+            <label for="akteJ">Ja.<i>Stuur kopie van de akte mee met de aangifte.</i></label>
+            <input type="radio" name="akte" id="akteJ" value="Ja">
+            <p>
+                Hadden de overledene en diens partner een finaal verrekenbeding?
+            </p>
+            <label for="bedingN">Nee</label>
+            <input type="radio" name="beding" id="bedingN" value="Nee">
+            <label for="bedingJ">Ja</label>
+            <input type="radio" name="beding" id="bedingJ" value="Ja">
+            <label for="huwelijksdatum">Datum huwelijkse of partnerschapsvoorwaarden</label>
+            <input type="date" name="huwelijksdatum" id="huwelijksdatum">
         </fieldset>
     </fieldset>
 </form>
@@ -48,3 +63,5 @@
 <!--            <optgroup></optgroup>-->
 <!--            <hr>-->
 <!--            Dit is opties in een dropdown-->
+
+input type text input mode numeric voor
