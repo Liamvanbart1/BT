@@ -1,18 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Uitleg voorbeelden</title>
-  <link rel="stylesheet" href="css/uitleg.css">
-</head>
-<body>
-    <h1>Uitleg Formelementen</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <title>UX of HTML</title>
+    <link rel="stylesheet" href="styles/uitleg.css" />
+    <link rel="stylesheet" href="styles/fonts.css" />
+  </head>
+  <body>
+    <section class="intro">
+      <h1>Erfbelasting</h1>
+    </section>
+
     <form>
-        <fieldset>
-            <legend>Adress</legend>
-            <input type="text" name="Adress" placeholder="Adress" required>
-        </fieldset>
+      <nav>
+        <input type="radio" id="tab1" name="tabs" checked />
+        <label for="tab1">Sectie 1</label>
+
+        <input type="radio" id="tab2" name="tabs" />
+        <label for="tab2">Sectie 2</label>
+
+        <input type="radio" id="tab3" name="tabs" />
+        <label for="tab3">Sectie 3</label>
+
+        <input type="radio" id="tab4" name="tabs" />
+        <label for="tab4">Sectie 4</label>
+      </nav>
+
+      <div class="tab-content">
+        <section class="sectie1">
+          <h2>Gegevens van de Overledene</h2>
+          <h3>Vul hier de gegevens in van de overledene.</h3>
+          <!-- your fieldsets remain unchanged here -->
+        </section>
+
+        <section class="sectie2">Sectie 2</section>
+        <section class="sectie3">Sectie 3</section>
+        <section class="sectie4">Sectie 4</section>
+      </div>
     </form>
-<script src="JS/uitleg.js"></script>
-</body>
+
+    <script src="JS/opdracht.js"></script>
+    <script>
+      document.body.className += " display";
+    </script>
+  </body>
 </html>

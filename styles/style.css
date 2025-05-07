@@ -1,48 +1,207 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 :root {
-    color-scheme: light dark;
-    --background-color: light-dark(#ffffff, #121212);
-    --primary-color: light-dark(#fec718, #1f1b24);
-    --secondary-color: light-dark(#2c3e50, #1a252f);
-    --text-color: light-dark(#233973, #ffffff);
-    --button-color: light-dark(#2b61ab, #3700B3);
+  --ns-main: #ffc917;
+  --ns-darkblue: #003082;
+  --ns-lightblue: #0063d3;
+  --inputbackground: #dee5fe;
+  --ns-white: #ffffff;
+  --ns-grey: #070721;
+  --ns-grey-10: #202037;
+  --ns-grey-20: #39394d;
+  --ns-grey-30: #515164;
+  --ns-grey-40: #6a6a7a;
+  --ns-grey-50: #838390;
+  --ns-grey-60: #9c9ca6;
+  --ns-grey-70: #b5b5bc;
+  --ns-grey-80: #cdcdd3;
+  --ns-grey-90: #e6e6e9;
+  --ns-grey-94: #f0f0f2;
+  --ns-red-alert: #db0029;
+  --ns-green: #009a42;
+  --ns-ovchip: #ff0098;
+  --ns-ovorange: #ff7700;
+  --ns-light-blue: #0079d3;
+  --ns-light-blue-2: #005ca0;
+  --ns-yellow-2: #ffb519;
+  --ns-hover-blue: #004ba0;
 }
 
 body {
-     font-family: NS Sans, Segoe UI, Myriad, Verdana, sans-serif;
-    background-color: var(--background-color);
-    display: flex;
-    flex-direction: column;
-    margin: 5em;
-    color: var(--text-color);
+  font-family: NS Sans, Segoe UI, Myriad, Verdana, sans-serif;
+  background-color: var(--ns-white);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 5em;
+  color: var(--ns-grey);
 }
 
+h2 {
+  color: var(--ns-darkblue);
+}
+
+.container {
+  display: grid;
+  grid-auto-rows: 0.5fr;
+
+  & fieldset {
+    display: flex;
+    flex-direction: column;
+    /*gap: 1em;*/
+  }
+}
+
+.tab-content {
+  flex: 1;
+}
+
+.vraagenIput {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0.5rem 0 0.5rem 0;
+  padding: 0.2rem 0;
+}
+
+/* Dit zorgt ervoor dat de classes die dingen verbergen alleen worden ge applied als er js is zodat als er geen js alles nog steeds werkt */
+
 form {
-    background-color: var(--primary-color);
-    padding: 1em;
+  background-color: var(--ns-main);
+  padding: 1em;
+  width: 80vw;
+  display: flex;
+  gap: 2em;
+  height: 90vh;
 }
 
 button {
-    all: unset;
+  all: unset;
 }
 
 fieldset {
-
+  border: none;
 }
 
-fieldset:has(> label) {
-    border: none;
-    padding: 1em;
-    display: grid;
-    grid-template-rows: 1fr 1fr;
+section {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.4s ease, max-height 0.4s ease;
+  width: 75%;
 }
 
-fieldset:has(> label)>[input type="radio"] {
-    background-color: var(--secondary-color);
+form:has(#tab1:checked) .sectie1,
+form:has(#tab2:checked) .sectie2,
+form:has(#tab3:checked) .sectie3,
+form:has(#tab4:checked) .sectie4 {
+  opacity: 1;
+  max-height: 70vh;
 }
 
+nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+nav input[type="radio"] {
+  display: none;
+}
+
+nav label {
+  margin-bottom: 0.5em;
+}
+
+nav input[type="radio"]:checked + label {
+  background-color: var(--ns-hover-blue);
+}
+
+/* button style komt van de NS website zelf */
+.ns-button {
+  display: inline-block;
+  position: relative;
+  height: 2.8125rem;
+  padding: 0.625rem 1.125rem;
+  vertical-align: top;
+  min-width: 7.5rem;
+  font-weight: 400;
+  white-space: nowrap;
+  background-color: var(--ns-light-blue);
+  color: var(--ns-white);
+  box-shadow: inset 0 -0.125rem 0 var(--ns-light-blue-2);
+  text-align: center;
+  line-height: 1.5625rem;
+  font-size: 1rem;
+  border: none;
+  text-decoration: none;
+  transition: box-shadow 0.15s ease-in-out;
+}
+
+.ns-button:hover {
+  box-shadow: inset 0 -3.125rem 0 var(--ns-hover-blue);
+  color: var(--ns-white);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#partnerDetails {
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 0.3s ease, max-height 0.5s ease, pointer-events 0.3s ease;
+  overflow: hidden;
+}
+
+form:has(#partnerN:checked) #partnerDetails {
+  opacity: 0;
+  max-height: 0;
+  pointer-events: none;
+  filter: saturate(0);
+  cursor: default;
+}
+
+form:has(#partnerJ:checked) #partnerDetails {
+  opacity: 1;
+  max-height: 300em;
+  pointer-events: all;
+  filter: saturate(1);
+  cursor: pointer;
+}
+
+/*styling voor radio buttons https://www.ns.nl/formulieren/sponsorverzoek.html*/
+/*https://www.ns.nl/platform/fundamentals/index.html stylesheet NS*/
+
+input {
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  border: 2px solid #ccc;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  border-color: var(--ns-lightblue);
+}
+
+/* Groene balk voor valide velden */
+input::user-valid:not(:focus) {
+  border-color: var(--ns-green);
+  background-image: linear-gradient(to left, #009a42 5px, transparent 5px);
+  background-size: 100% 100%;
+}
+
+/* Rood voor ongeldige invoer */
+input:user-invalid:not(:placeholder-shown):not(:focus) {
+  border-color: #db0029; /* Rood voor ongeldige invoer */
+  background-image: linear-gradient(to left, #db0029 5px, transparent 5px);
+  background-size: 100% 100%;
+}
+
+/* Verhinderen dat de validatie onmiddellijk van toepassing is */
+input:required:invalid {
+  border-color: #db0029; /* Rood bij required invaliden */
+  background-image: none;
+}
