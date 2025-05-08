@@ -1,45 +1,46 @@
-// document.addEventListener("DOMContentLoaded", function () {
-//   const form = document.querySelector("form");
+document.addEventListener("DOMContentLoaded", function () {
+  window.scrollTo({ top: 0, behavior: "smooth" });
 
-//   // Functie om formuliergegevens op te slaan in localStorage
-//   function saveFormData() {
-//     const formData = {};
-//     new FormData(form).forEach((value, key) => {
-//       formData[key] = value;
-//     });
-//     localStorage.setItem("formData", JSON.stringify(formData));
-//     console.log("Form data opgeslagen:", formData);
-//   }
+  const form = document.querySelector("form");
 
-//   // Functie om formuliergegevens te laden uit localStorage
-//   function loadFormData() {
-//     const savedData = localStorage.getItem("formData");
-//     if (savedData) {
-//       const formData = JSON.parse(savedData);
-//       Object.keys(formData).forEach((key) => {
-//         const elements = document.querySelectorAll(`[name="${key}"]`);
-//         if (!elements.length) return;
+  // Functie om formuliergegevens op te slaan in localStorage
+  function saveFormData() {
+    const formData = {};
+    new FormData(form).forEach((value, key) => {
+      formData[key] = value;
+    });
+    localStorage.setItem("formData", JSON.stringify(formData));
+    console.log("Form data opgeslagen:", formData);
+  }
 
-//         elements.forEach((input) => {
-//           if (input.type === "radio" || input.type === "checkbox") {
-//             if (input.value === formData[key]) {
-//               input.checked = true;
-//             }
-//           } else {
-//             input.value = formData[key];
-//           }
-//         });
-//       });
-//       console.log("Form data geladen:", formData);
-//     }
-//   }
+  // Functie om formuliergegevens te laden uit localStorage
+  function loadFormData() {
+    const savedData = localStorage.getItem("formData");
+    if (savedData) {
+      const formData = JSON.parse(savedData);
+      Object.keys(formData).forEach((key) => {
+        const elements = document.querySelectorAll(`[name="${key}"]`);
+        if (!elements.length) return;
 
-//   // Formulier opslaan elke 60 seconden
-//   setInterval(saveFormData, 6000); // 60 seconden, niet 600ms
+        elements.forEach((input) => {
+          if (input.type === "radio" || input.type === "checkbox") {
+            if (input.value === formData[key]) {
+              input.checked = true;
+            }
+          } else {
+            input.value = formData[key];
+          }
+        });
+      });
 
-//   // Formulier laden bij paginalaad
-//   loadFormData();
-// });
+      console.log("Form data geladen:", formData);
+    }
+  }
+
+  setInterval(saveFormData, 6000);
+
+  loadFormData();
+});
 document.addEventListener("DOMContentLoaded", () => {
   const nextToTab2 = document.getElementById("nextToTab2");
   const nextToTab3 = document.getElementById("nextToTab3");
