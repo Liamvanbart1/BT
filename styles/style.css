@@ -110,7 +110,7 @@ form:has(#uitkeringN:checked) .uitkeringdetails {
 
 .extrainfodatum {
   opacity: 1;
-  max-height: 300em; /* Adjust the height as needed to make it visible */
+  max-height: 300em;
   pointer-events: all;
   filter: saturate(1);
   cursor: pointer;
