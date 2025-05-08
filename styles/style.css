@@ -4,6 +4,13 @@
   padding: 0;
 }
 
+h2 {
+  font-size: 24px;
+  line-height: 2rem;
+  font-weight: 400;
+  margin-bottom: 0.5em;
+}
+
 :root {
   --ns-main: #ffc917;
   --ns-darkblue: #003082;
@@ -31,35 +38,51 @@
   --ns-hover-blue: #004ba0;
 }
 
+legend {
+  color: var(--ns-light-blue);
+  font-size: 0.9rem;
+  font-weight: 100;
+  margin: 1em 0 1em 0;
+}
+
+header {
+  background-color: var(--ns-main);
+  height: 8vh;
+  width: 100vw;
+  padding: 1em;
+  display: flex;
+  gap: 0.5em;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2em;
+}
+
 body {
   font-family: NS Sans, Segoe UI, Myriad, Verdana, sans-serif;
   background-color: var(--ns-white);
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin: 5em;
-  color: var(--ns-grey);
+  background-color: var(--ns-grey-94);
 }
 
 h2 {
   color: var(--ns-darkblue);
 }
 
-.container {
-  display: grid;
-  grid-auto-rows: 0.5fr;
-
-  & fieldset {
-    display: flex;
-    flex-direction: column;
-    /*gap: 1em;*/
-  }
+fieldset {
+  display: flex;
+  flex-direction: column;
 }
 
 .tab-content {
   flex: 1;
 }
 
+.card {
+  padding: 1em;
+}
 .vraagenIput {
   display: flex;
   flex-direction: column;
@@ -68,31 +91,78 @@ h2 {
   padding: 0.2rem 0;
 }
 
+.uitkeringdetails {
+  opacity: 1;
+  max-height: 1000em;
+  pointer-events: all;
+  filter: saturate(1);
+  transition: opacity 0.3s ease, max-height 0.5s ease, pointer-events 0.3s ease;
+  overflow: hidden;
+}
+
+form:has(#uitkeringN:checked) .uitkeringdetails {
+  opacity: 0;
+  max-height: 0;
+  pointer-events: none;
+  filter: saturate(0);
+  cursor: default;
+}
+
+.extrainfodatum {
+  opacity: 1;
+  max-height: 300em; /* Adjust the height as needed to make it visible */
+  pointer-events: all;
+  filter: saturate(1);
+  cursor: pointer;
+  transition: opacity 0.3s ease, max-height 0.5s ease, pointer-events 0.3s ease;
+}
+
+form:has(#uitkeringstop1:checked) .extrainfodatum {
+  opacity: 0;
+  max-height: 0;
+  pointer-events: none;
+  filter: saturate(0);
+  cursor: default;
+}
+
 /* Dit zorgt ervoor dat de classes die dingen verbergen alleen worden ge applied als er js is zodat als er geen js alles nog steeds werkt */
 
 form {
-  background-color: var(--ns-main);
+  background-color: var(--ns-white);
   padding: 1em;
-  width: 80vw;
+  width: 70vw;
   display: flex;
   gap: 2em;
-  height: 90vh;
+  min-height: 80vh;
+}
+.radiobuttons {
+  display: flex;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  gap: 1em;
 }
 
-button {
-  all: unset;
+.radiobuttons1 {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 fieldset {
   border: none;
+  gap: 0.5em;
 }
 
+b {
+  font-weight: bold;
+}
 section {
   opacity: 0;
   max-height: 0;
   overflow: hidden;
   transition: opacity 0.4s ease, max-height 0.4s ease;
-  width: 75%;
+  width: 90%;
 }
 
 form:has(#tab1:checked) .sectie1,
@@ -100,10 +170,11 @@ form:has(#tab2:checked) .sectie2,
 form:has(#tab3:checked) .sectie3,
 form:has(#tab4:checked) .sectie4 {
   opacity: 1;
-  max-height: 70vh;
+  max-height: 130vh;
 }
 
 nav {
+  background-color: var(--ns-main);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -120,6 +191,10 @@ nav input[type="radio"]:checked + label {
   background-color: var(--ns-hover-blue);
 }
 
+label {
+  font-size: 0.9rem;
+}
+
 /* button style komt van de NS website zelf */
 .ns-button {
   display: inline-block;
@@ -127,7 +202,7 @@ nav input[type="radio"]:checked + label {
   height: 2.8125rem;
   padding: 0.625rem 1.125rem;
   vertical-align: top;
-  min-width: 7.5rem;
+  width: 7.5rem;
   font-weight: 400;
   white-space: nowrap;
   background-color: var(--ns-light-blue);
@@ -150,7 +225,6 @@ nav input[type="radio"]:checked + label {
 
 #partnerDetails {
   opacity: 1;
-  pointer-events: none;
   transition: opacity 0.3s ease, max-height 0.5s ease, pointer-events 0.3s ease;
   overflow: hidden;
 }
@@ -171,37 +245,148 @@ form:has(#partnerJ:checked) #partnerDetails {
   cursor: pointer;
 }
 
+.akteDetails {
+  opacity: 0;
+  max-height: 0;
+  transition: opacity 0.3s ease, max-height 0.5s ease, pointer-events 0.3s ease;
+  overflow: hidden;
+}
+
+form:has(#akteN:checked) .akteDetails {
+  opacity: 0;
+  max-height: 0;
+  pointer-events: none;
+  filter: saturate(0);
+  cursor: default;
+}
+
+form:has(#akteJ:checked) .akteDetails {
+  opacity: 1;
+  max-height: 300em;
+  pointer-events: all;
+  filter: saturate(1);
+  cursor: pointer;
+}
+
+.andersDetails {
+  opacity: 0;
+  max-height: 0;
+  transition: opacity 0.3s ease, max-height 0.5s ease, pointer-events 0.3s ease;
+  overflow: hidden;
+}
+
+form:has(#broerZus:checked) .andersDetails,
+form:has(#vaderMoeder:checked) .andersDetails,
+form:has(#neefNicht:checked) .andersDetails {
+  opacity: 0;
+  max-height: 0;
+  pointer-events: none;
+  filter: saturate(0);
+  cursor: default;
+}
+
+form:has(#anders:checked) .andersDetails {
+  opacity: 1;
+  max-height: 300em;
+  pointer-events: all;
+  filter: saturate(1);
+  cursor: pointer;
+}
+
+.andersDetails-2 {
+  opacity: 0;
+  max-height: 0;
+  transition: opacity 0.3s ease, max-height 0.5s ease, pointer-events 0.3s ease;
+  overflow: hidden;
+}
+
+form:has(#broerZus-2:checked) .andersDetails-2,
+form:has(#vaderMoeder-2:checked) .andersDetails-2,
+form:has(#neefNicht-2:checked) .andersDetails-2 {
+  opacity: 0;
+  max-height: 0;
+  pointer-events: none;
+  filter: saturate(0);
+  cursor: default;
+}
+
+form:has(#anders-2:checked) .andersDetails-2 {
+  opacity: 1;
+  max-height: 300em;
+  pointer-events: all;
+  filter: saturate(1);
+  cursor: pointer;
+}
+
+.andersDetails-3 {
+  opacity: 0;
+  max-height: 0;
+  transition: opacity 0.3s ease, max-height 0.5s ease, pointer-events 0.3s ease;
+  overflow: hidden;
+}
+
+form:has(#broerZus-3:checked) .andersDetails-3,
+form:has(#vaderMoeder-3:checked) .andersDetails-3,
+form:has(#neefNicht-3:checked) .andersDetails-3 {
+  opacity: 0;
+  max-height: 0;
+  pointer-events: none;
+  filter: saturate(0);
+  cursor: default;
+}
+
+form:has(#anders-3:checked) .andersDetails-3 {
+  opacity: 1;
+  max-height: 300em;
+  pointer-events: all;
+  filter: saturate(1);
+  cursor: pointer;
+}
 /*styling voor radio buttons https://www.ns.nl/formulieren/sponsorverzoek.html*/
 /*https://www.ns.nl/platform/fundamentals/index.html stylesheet NS*/
 
-input {
-  padding: 0.5rem;
-  margin: 0.5rem 0;
-  border: 2px solid #ccc;
-  width: 100%;
+input:not(input[type="radio"]) {
+  background-color: var(--ns-grey-94);
+  padding: 0.625rem 0.875rem;
+  height: 2.5rem;
   transition: all 0.3s ease;
+  border: none;
 }
 
 input:focus {
   border-color: var(--ns-lightblue);
 }
 
-/* Groene balk voor valide velden */
+input:user-invalid {
+  background-image: linear-gradient(
+    to left,
+    var(--ns-red-alert) 5px,
+    transparent 5px
+  );
+}
+
+input:user-valid {
+  background-image: linear-gradient(
+    to left,
+    var(--ns-green) 5px,
+    transparent 5px
+  );
+}
+
 input::user-valid:not(:focus) {
   border-color: var(--ns-green);
   background-image: linear-gradient(to left, #009a42 5px, transparent 5px);
   background-size: 100% 100%;
 }
 
-/* Rood voor ongeldige invoer */
-input:user-invalid:not(:placeholder-shown):not(:focus) {
-  border-color: #db0029; /* Rood voor ongeldige invoer */
+/* input:user-invalid:not(:placeholder-shown):not(:focus) {
+  border-color: #db0029; 
   background-image: linear-gradient(to left, #db0029 5px, transparent 5px);
   background-size: 100% 100%;
 }
 
-/* Verhinderen dat de validatie onmiddellijk van toepassing is */
+
 input:required:invalid {
-  border-color: #db0029; /* Rood bij required invaliden */
+  border-color: #db0029; 
   background-image: none;
-}
+} */

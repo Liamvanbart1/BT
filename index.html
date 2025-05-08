@@ -7,6 +7,13 @@
     <link rel="stylesheet" href="styles/fonts.css" />
   </head>
   <body>
+    <header>
+      <img src="./img/nslogo.svg" />
+      <h2>
+        Dit is een project voor de opleiding Web Design and Development geen
+        echte website
+      </h2>
+    </header>
     <section class="intro">
       <h1>Erfbelasting</h1>
     </section>
@@ -21,101 +28,408 @@
         <input type="radio" id="tab3" name="tabs" />
         <label for="tab3" class="ns-button">3</label>
 
-        <input type="radio" id="tab4" name="tabs" />
-        <label for="tab4" class="ns-button">4</label>
       </nav>
       <div class="tab-content">
         <section class="sectie1">
-          <h2>Gegevens van de Overledene</h2>
-          <h3>Vul hier de gegevens in van de overledene.</h3>
+          <h2>1. Gegevens van de Overledene</h2>
           <fieldset class="container">
-            <legend>1</legend>
             <fieldset>
-              <legend>1.a</legend>
+              <legend><b>1.a</b></legend>
+              <legend>Persoonsgegevens overledene</legend>
               <div class="vraagenIput">
                 <label for="voorenachter">
                   Voorletter(s), tussen- voegsel(s) en achternaam
                 </label>
-                <input type="text" name="naam" id="voorenachter" required />
+                <input
+                  type="text"
+                  name="naam"
+                  id="voorenachter"
+                  placeholder="bijv. Liam van Bart"
+                  required
+                />
               </div>
               <div class="vraagenIput">
                 <label for="bsn">Burgerservicenummer overledene</label>
-                <input type="text" name="bsn" id="bsn" required />
+                <input
+                  type="text"
+                  inputmode="numeric"
+                  maxlength="9"
+                  pattern="\d{9,9}"
+                  name="bsn"
+                  id="bsn-nummer"
+                  placeholder="987654321"
+                  required=""
+                />
               </div>
-              <label for="overlijdensdatum">Overlijdensdatum</label>
-              <input
-                type="date"
-                name="overlijdensdatum"
-                id="overlijdensdatum"
-              />
+              <div class="vraagenIput">
+                <label for="overlijdensdatum">Overlijdensdatum</label>
+                <input
+                  type="date"
+                  name="overlijdensdatum"
+                  id="overlijdensdatum"
+                />
+              </div>
             </fieldset>
             <fieldset>
-              <legend>1.b</legend>
+              <legend><b>1.b</b></legend>
               <fieldset>
-                <legend>
-                  Was de overledene getrouwd of had de overledene een
-                  geregistreerd partner op het moment van overlijden?
-                </legend>
-                <label for="partnerN"
-                  >Nee. <i>Ga verder met vraag 1c.</i></label
-                >
-                <input type="radio" name="partner" id="partnerN" value="Nee" />
-                <label for="partnerJ">Ja</label>
-                <input type="radio" name="partner" id="partnerJ" value="Ja" />
+                <div class="vraagenIput">
+                  <legend>
+                    Was de overledene getrouwd of had de overledene een
+                    geregistreerd partner op het moment van overlijden?
+                  </legend>
+                  <div class="radiobuttons">
+                    <label for="partnerN"
+                      >Nee. <i>Ga verder met vraag 1c.</i></label
+                    >
+                    <input
+                      type="radio"
+                      name="partner"
+                      id="partnerN"
+                      value="Nee"
+                    />
+                    <label for="partnerJ">Ja</label>
+                    <input
+                      type="radio"
+                      name="partner"
+                      id="partnerJ"
+                      value="Ja"
+                    />
+                  </div>
+                </div>
               </fieldset>
               <fieldset id="partnerDetails">
-                <legend>
-                  Hadden de overledene en diens echtgenoot of geregistreerd
-                  partner huwelijkse of partner schaps-voorwaarden laten
-                  vastleggen in een notariële akte?
-                </legend>
-                <label for="akteN">Nee</label>
-                <input type="radio" name="akte" id="akteN" value="Nee" />
-                <label for="akteJ"
-                  >Ja.<i>Stuur kopie van de akte mee met de aangifte.</i></label
-                >
-                <input type="radio" name="akte" id="akteJ" value="Ja" />
-                <legend>
-                  Hadden de overledene en diens partner een finaal
-                  verrekenbeding?
-                </legend>
-                <label for="bedingN">Nee</label>
-                <input type="radio" name="beding" id="bedingN" value="Nee" />
-                <label for="bedingJ">Ja</label>
-                <input type="radio" name="beding" id="bedingJ" value="Ja" />
-                <label for="huwelijksdatum"
-                  >Datum huwelijkse of partnerschapsvoorwaarden</label
-                >
-                <input type="date" name="huwelijksdatum" id="huwelijksdatum" />
+                <div class="vraagenIput">
+                  <legend>
+                    Hadden de overledene en diens echtgenoot of geregistreerd
+                    partner huwelijkse of partner schaps-voorwaarden laten
+                    vastleggen in een notariële akte?
+                  </legend>
+                  <div class="radiobuttons">
+                    <label for="akteN">Nee</label>
+                    <input type="radio" name="akte" id="akteN" value="Nee" />
+                    <label for="akteJ"
+                      >Ja.
+                      <i>Stuur kopie van de akte mee met de aangifte.</i></label
+                    >
+                    <input type="radio" name="akte" id="akteJ" value="Ja" />
+                  </div>
+                  <div class="akteDetails">
+                    <input
+                      type="file"
+                      id="mijnBestand"
+                      name="mijnBestand"
+                      class="selecteerBestand"
+                    />
+                  </div>
+                </div>
+                <div class="vraagenIput">
+                  <legend>
+                    Hadden de overledene en diens partner een finaal
+                    verrekenbeding?
+                  </legend>
+                  <div class="radiobuttons">
+                    <label for="bedingN">Nee</label>
+                    <input
+                      type="radio"
+                      name="beding"
+                      id="bedingN"
+                      value="Nee"
+                    />
+                    <label for="bedingJ">Ja</label>
+                    <input type="radio" name="beding" id="bedingJ" value="Ja" />
+                  </div>
+                </div>
+                <div class="vraagenIput">
+                  <label for="huwelijksdatum"
+                    >Datum huwelijkse of partnerschapsvoorwaarden</label
+                  >
+                  <input
+                    type="date"
+                    name="huwelijksdatum"
+                    id="huwelijksdatum"
+                  />
+                </div>
               </fieldset>
             </fieldset>
             <fieldset>
-              <legend>1.c</legend>
+              <legend><b>1.c</b></legend>
               <fieldset>
-                <legend>Had de overledene kinderen?</legend>
-                <label for="kinderenN">Nee</label>
-                <input
-                  type="radio"
-                  name="kinderen"
-                  id="kinderenN"
-                  value="Nee"
-                />
-                <label for="kinderenJ">Ja</label>
-                <input type="radio" name="kinderen" id="kinderenJ" value="Ja" />
+                <div class="vraagenIput">
+                  <legend>Had de overledene kinderen?</legend>
+                  <div class="radiobuttons">
+                    <label for="kinderenN">Nee</label>
+                    <input
+                      type="radio"
+                      name="kinderen"
+                      id="kinderenN"
+                      value="Nee"
+                    />
+                    <label for="kinderenJ">Ja</label>
+                    <input
+                      type="radio"
+                      name="kinderen"
+                      id="kinderenJ"
+                      value="Ja"
+                    />
+                  </div>
+                </div>
               </fieldset>
             </fieldset>
           </fieldset>
+          <button type="button" class="ns-button" id="nextToTab2">
+            Volgende
+          </button>
         </section>
-        <section class="sectie2">Sectie 2</section>
-        <section class="sectie3">Sectie 3</section>
+        <section class="sectie2">
+          <h2>2. Gegevens van de verkrijger</h2>
+          <fieldset class="container">
+            <fieldset>
+              <legend><b>2.a</b></legend>
+              <div class="card">
+                <legend>Persoonsgegevens verkrijger</legend>
+                <div class="vraagenIput">
+                  <label for="voorenachter1">
+                    Voorletter(s), tussen- voegsel(s) en achternaam
+                  </label>
+                  <input
+                    type="text"
+                    name="naam"
+                    id="voorenachter1"
+                    placeholder="bijv. Liam van Bart"
+                    required
+                  />
+                </div>
+                <div class="vraagenIput">
+                  <label for="bsn1">Burgerservicenummer overledene</label>
+                  <input
+                    type="text"
+                    inputmode="numeric"
+                    maxlength="9"
+                    pattern="\d{9,9}"
+                    name="bsn1"
+                    id="bsn-nummer1"
+                    placeholder="987654321"
+                    required
+                  />
+                </div>
+                <div class="vraagenIput">
+                  <legend>
+                    Relatie met de overledene?
+                  </legend>
+                  <div class="radiobuttons1">
+                    <div class="radiobuttons">
+                      <input type="radio" name="relatie" id="broerZus" value="broerZus" />
+                      <label for="broerZus">Broer/Zus</label>
+                    </div>
+                    <div class="radiobuttons">
+                      <input type="radio" name="relatie" id="vaderMoeder" value="vaderMoeder" />
+                      <label for="vaderMoeder">Vader/Moeder</label>
+                    </div>
+                    <div class="radiobuttons">
+                      <input type="radio" name="relatie" id="neefNicht" value="neefNicht" />
+                      <label for="neefNicht">Neef/Nicht</label>
+                    </div>
+                    <div class="radiobuttons">
+                      <input type="radio" name="relatie" id="anders" value="anders" />
+                      <label for="anders">Anders</label>
+                    </div>
+                  </div>
+                    <div class="andersDetails">
+                      <label for="andersRelatie">Specificeer relatie:</label>
+                      <input type="text" id="andersRelatie" name="andersRelatie" placeholder="Bijv. buurman" />
+                    </div>
+                </div>
+              </div>
+              <div class="card">
+                <legend>Persoonsgegevens verkrijger</legend>
+                <div class="vraagenIput">
+                  <label for="voorenachter2">
+                    Voorletter(s), tussen- voegsel(s) en achternaam
+                  </label>
+                  <input
+                    type="text"
+                    name="naam"
+                    id="voorenachter2"
+                    placeholder="bijv. Liam van Bart"
+                    required
+                  />
+                </div>
+                <div class="vraagenIput">
+                  <label for="bsn2">Burgerservicenummer overledene</label>
+                  <input
+                    type="text"
+                    inputmode="numeric"
+                    maxlength="9"
+                    pattern="\d{9,9}"
+                    name="bsn2"
+                    id="bsn-nummer2"
+                    placeholder="987654321"
+                    required
+                  />
+                </div>
+                <div class="vraagenIput">
+                  <legend>
+                    Relatie met de overledene?
+                  </legend>
+                <div class="radiobuttons1">
+                  <div class="radiobuttons">
+                    <input type="radio" name="relatie-2" id="broerZus-2" value="broerZus" />
+                    <label for="broerZus-2">Broer/Zus</label>
+                  </div>
+                  <div class="radiobuttons">
+                    <input type="radio" name="relatie-2" id="vaderMoeder-2" value="vaderMoeder" />
+                    <label for="vaderMoeder-2">Vader/Moeder</label>
+                  </div>
+                  <div class="radiobuttons">
+                    <input type="radio" name="relatie-2" id="neefNicht-2" value="neefNicht" />
+                    <label for="neefNicht-2">Neef/Nicht</label>
+                  </div>
+                  <div class="radiobuttons">
+                    <input type="radio" name="relatie-2" id="anders-2" value="anders" />
+                    <label for="anders-2">Anders</label>
+                  </div>
+                </div>
+                <div class="andersDetails-2">
+                  <label for="andersRelatie-2">Specificeer relatie:</label>
+                  <input type="text" id="andersRelatie-2" name="andersRelatie-2" placeholder="Bijv. buurman" />
+                </div>
+              </div>
+              <div class="card">
+              <legend>Persoonsgegevens verkrijger</legend>
+              <div class="vraagenIput">
+                <label for="voorenachter3">
+                  Voorletter(s), tussen- voegsel(s) en achternaam
+                </label>
+                <input
+                  type="text"
+                  name="naam"
+                  id="voorenachter3"
+                  placeholder="bijv. Liam van Bart"
+                  required
+                />
+              </div>
+              <div class="vraagenIput">
+                <label for="bsn3">Burgerservicenummer overledene</label>
+                <input
+                  type="text"
+                  inputmode="numeric"
+                  maxlength="9"
+                  pattern="\d{9,9}"
+                  name="bsn3"
+                  id="bsn-nummer3"
+                  placeholder="987654321"
+                  required
+                />
+              </div>
+              <div class="vraagenIput">
+                <legend>
+                  Relatie met de overledene?
+                </legend>
+                <div class="radiobuttons3">
+                  <div class="radiobuttons">
+                    <input type="radio" name="relatie" id="broerZus-3" value="broerZus-3" />
+                    <label for="broerZus-3">Broer/Zus</label>
+                  </div>
+                  <div class="radiobuttons">
+                    <input type="radio" name="relatie" id="vaderMoeder-3" value="vaderMoeder-3" />
+                    <label for="vaderMoeder-3">Vader/Moeder</label>
+                  </div>
+                  <div class="radiobuttons">
+                    <input type="radio" name="relatie" id="neefNicht-3" value="neefNicht-3" />
+                    <label for="neefNicht-3">Neef/Nicht</label>
+                  </div>
+                  <div class="radiobuttons">
+                    <input type="radio" name="relatie" id="anders-3" value="anders-3" />
+                    <label for="anders-3">Anders</label>
+                  </div>
+                </div>
+                <div class="andersDetails-3">
+                  <label for="andersRelatie-3">Specificeer relatie:</label>
+                  <input type="text" id="andersRelatie-3" name="andersRelatie-3" placeholder="Bijv. buurman" />
+                </div>
+              </div>
+            </div>
+              
+            </fieldset>
+          <button type="button" class="ns-button" id="nextToTab3">Volgende</button>
+
+        </section>
+        <section class="sectie3">
+          <h2>3. Lijfrenten en pensioenen</h2>
+          <fieldset class="container">
+            <fieldset>
+              <legend><b>3.a</b></legend>
+              <div class="vraagenIput">
+                <legend>Krijgt iemand door het overlijden een lijfrente of pensioenuitkering of had iemand al een lijfrente- of pensioenuitkering en gaat die door het overlijden omhoog?</legend>
+                  <div class="radiobuttons">
+                    <label for="uitkeringN"
+                      >Nee</label
+                    >
+                    <input
+                      type="radio"
+                      name="uitkering"
+                      id="uitkeringN"
+                      value="Nee"
+                    />
+                    <label for="uitkeringJ">Ja</label>
+                    <input
+                      type="radio"
+                      name="uitkering"
+                      id="uitkeringJ"
+                      value="Ja"
+                    />
+                  </div>
+                </div>
+                <fieldset class="uitkeringdetails">
+                  <div class="vraagenIput">
+                    <legend><b>3.b</b></legend>
+                  <legend>Wanneer stopt de uitkering?</legend>
+                  <div class="radiobuttons">
+                    <label for="uitkeringstop"
+                      >Op een vaste datum</label
+                    >
+                    <input
+                      type="radio"
+                      name="uitkeringstop"
+                      id="uitkeringstop"
+                      value="Op een vaste datum"
+                    />
+                    <label for="uitkeringstop1">Bij overlijden van de partner van de overledene</label>
+                    <input
+                    type="radio"
+                    name="uitkeringstop"
+                    id="uitkeringstop1"
+                    value="Bij overlijden van de partner van de overledene"
+                    />
+                  </div>
+                  <div class="extrainfodatum">
+                    <input type="date" name="uitkeringstopdatum1" value="" min="2025-01-01" max="2050-12-31" class="valid">
+                  </div>
+                  <div class="vraagenIput">
+                      <legend>Jaarlijks brutobedrag van de uitkering</legend>
+                      <input type="number" name="brutouitkering" min="0" max="100000000" step="1.00" placeholder="€ 9600.00" required="">
+                    </div>
+                    <div class="vraagenIput">
+                      <legend>Als de lijfrente-uitkering is afgekocht, voor welk bedrag?</legend>
+                      <input type="number" name="brutouitkering1" min="0" max="100000000" step="1.00" placeholder="€ 9600.00" required="">
+                    </div>
+                    <div class="vraagenIput">
+                      <legend>Als de lijfrente-uitkering omhoog gaat, met welk bedrag?</legend>
+                      <input type="number" name="brutouitkering2" min="0" max="100000000" step="1.00" placeholder="€ 9600.00" required="">
+                    </div>
+                </fieldset>
+          <button type="button" class="ns-button" id="nextToTab2">
+            Inleveren
+          </button>
+        </section>
       </div>
     </form>
     <script src="JS/opdracht.js"></script>
-    <script>
-      document.body.className += " display";
-    </script>
   </body>
 </html>
+
+
 <!--            -->
 <!--            <optgroup></optgroup>-->
 <!--            <hr>-->

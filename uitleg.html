@@ -7,36 +7,16 @@
     <link rel="stylesheet" href="styles/fonts.css" />
   </head>
   <body>
-    <section class="intro">
-      <h1>Erfbelasting</h1>
-    </section>
-
     <form>
-      <nav>
-        <input type="radio" id="tab1" name="tabs" checked />
-        <label for="tab1">Sectie 1</label>
-
-        <input type="radio" id="tab2" name="tabs" />
-        <label for="tab2">Sectie 2</label>
-
-        <input type="radio" id="tab3" name="tabs" />
-        <label for="tab3">Sectie 3</label>
-
-        <input type="radio" id="tab4" name="tabs" />
-        <label for="tab4">Sectie 4</label>
-      </nav>
-
-      <div class="tab-content">
-        <section class="sectie1">
-          <h2>Gegevens van de Overledene</h2>
-          <h3>Vul hier de gegevens in van de overledene.</h3>
-          <!-- your fieldsets remain unchanged here -->
-        </section>
-
-        <section class="sectie2">Sectie 2</section>
-        <section class="sectie3">Sectie 3</section>
-        <section class="sectie4">Sectie 4</section>
-      </div>
+      <label for="email">Email *: </label>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        value="test@example.com"
+        required
+      />
+      <span></span>
     </form>
 
     <script src="JS/opdracht.js"></script>
