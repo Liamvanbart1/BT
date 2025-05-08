@@ -1,8 +1,8 @@
-\*\* Opdracht
+## Opdracht
 
 Voor het vak Browser Tech is de opdracht om een belastingformulier te ontwerpen dat qua stijl aansluit bij die van de NS. De nadruk ligt op het schrijven van semantische HTML en het toegankelijk houden van het formulier via progressive enhancement. Dit betekent dat het formulier volledig bruikbaar moet blijven, zelfs als JavaScript is uitgeschakeld. Daarnaast is het belangrijk om een prettige gebruikerservaring te bieden, met duidelijke foutmeldingen en feedback die aansluit bij wat de gebruiker ziet en begrijpt.
 
-\*\* Onderzoek
+## Onderzoek
 
 Voor onderzoek heb ik goed geluisterd tijdens de lessen. We kregen hier namelijk uitleg over HTML-elementen en hun functies, die ik nog nooit had gehoord. We kregen vervolgens ook een fysieke versie van het erfbelastingformulier, en toen merkte ik pas wat een dik pak papier dat is. Ik vond het in eerste instantie al moeilijk om te kiezen wat ik nou überhaupt wilde gaan laten zien.
 
@@ -20,9 +20,29 @@ Ik heb geluisterd naar de docenten en heb een aantal technieken gebruikt om het 
 
 ![NS button](./img/ss4.png)
 
-\*\*\ Validatie
+## Validatie
 
 Voor validatie heb ik iets subtiels toegevoegd wat aangeeft of het veld goed of niet goed is ingevuld. Eerst deed ik dit met input invalid of input valid alleen ik kwam erachter dat dit meteen gebeurde ookal had de user nog niks met het scherm gedaan daarom heb ik gekozen voor input:user-invalid en input:user-valid dit zorgt ervoor dat de feedback alleen verschijnt wanneer de user interactie heeft gehad met de pagina.
 
 ![NS feedback](./img/ss5.png)
 ![NS feedback1](./img/ss6.png)
+
+## Opslaan
+
+Ik heb met een stukje javascript wat alle formdata omzet naar json en deze vervolgens weer terug zet wanneer de pagina laadt.
+
+![NS feedback1](./img/ss7.png)
+
+## Reflectie
+
+Tijdens dit project merkte ik dat ik me te veel focuste op het doornemen van het belastingformulier zelf. Bij het sorteren en opschrijven van de vragen die verschillende inputs hadden, kwam ik in de war. Dit leidde ertoe dat ik veel tijd verspilde aan het proberen de vragenlijst op een logische manier in te richten.
+
+## Wat ik heb geleerd binnen dit project
+
+- Het manipuleren van verschillende inputtypes, zoals `date`, `number`, etc.
+- Hoe ik patronen kan gebruiken met regex.
+- Het implementeren van fallback-states voor HTML-elementen.
+- Het toepassen van progressive enhancement en conditional hiding.
+- Het structureren van vragen en het herkennen van componenten.
+- Validatie van velden.
+- Het gebruik van Local Storage.
